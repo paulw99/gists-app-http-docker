@@ -1,15 +1,14 @@
-# gists-app-http-docker
+  # gists-app-http-docker
 
 # Table of Contents
 
 
 1. [What is gists-app-http-docker ❓](#what-is-gists-app-http-docker-)
 2. [Project setup 💼](#project-setup-)
-3. [Running docker 🐋](#running-docker-)
-   * [Verify docker Image 🖼️](#verify-docker-image-) 
-4. [Running docker Image 🎽](#running-docker-image-)
+3. [Building the Docker Image 🐋](#Building the Docker Image-)
+4. [Running docker Image on Kubernetes/Minikube🎽](#running-docker-image-)
 5. [STOPPING and REMOVING (all components) 🛑](#stopping-docker-docker-container-)
-6. [MIT LICENSE 🛡️ ](#license-)
+
 
 
 ## What is gists-app-http-docker ❓
@@ -36,8 +35,7 @@ It is a demo project to demonstrate using a docker container running in docker t
 Exand the zip file to your machine 
 
 ```shell
-cd ~
-unzip gists-app-http-docker.zip
+git clone git@github.com:paulw99/gists-app-http-docker.git
 cd gists-app-http-docker
 ```
 
@@ -49,6 +47,7 @@ cd gists-app-http-docker
 
 ```
 docker build . -t gists-app-http-docker
+docker images
 REPOSITORY                    TAG       IMAGE ID       CREATED       SIZE
 gists-app-http-docker         latest    61c0d15d6395   2 hours ago   871MB
 ```
@@ -59,7 +58,7 @@ After `docker build` is completed, start the container in minikube
 
 run `kubectl apply -f ./kubectl-deploy.yml`
 
-### Start the application 🖼️
+### Access the application 🖼️
 run `minikube service gists-service`
 - This should start the app in the browser, alternativelty copy the URL and enter in the browser manually.
 `http://192.168.49.2:30303`
