@@ -1,0 +1,21 @@
+{
+  "name": "gists-app-http-docker",
+  "version": "0.0.1",
+  "description": "My sample image running a NodeJS server and my gists app.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gists",
+    "nodejs",
+    "github",
+    "example",
+    "local",
+    "localhost",
+    "8080"
+  ],
+  "author": "Paul Williamson",
+  "homepage":"",
+  "license": "UNLICENSED"
+}

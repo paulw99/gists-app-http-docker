@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gists
+spec:
+  selector:
+    matchLabels:
+      app: gists
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: gists
+    spec:
+      containers:
+      - name: gists
+        image: gists-app-http-docker
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+          name: gists-svc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gists-service
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    nodePort: 30303
+    targetPort: 8080
+    protocol: TCP
+    name: gists-nodeport
+  selector:
+    app: gists
